@@ -868,6 +868,9 @@ describe('toMatchObject()', () => {
     [{}, 'some string'],
     [{}, true],
     [{}, undefined],
+    [new Error('foo'), new Error('foo')],
+    [new Error('foo'), new Error('bar')],
+    [new Error('foo'), { a: 'b' }],
   ].forEach(([n1, n2]) => {
     it(`throws expect(${stringify(n1)}).toMatchObject(${stringify(n2)})`, () => {
       expect(() =>

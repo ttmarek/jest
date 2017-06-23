@@ -3359,6 +3359,33 @@ Received:
   string: <red>\\"44\\"</>"
 `;
 
+exports[`toMatchObject() throws expect([Error: foo]).toMatchObject([Error: bar]) 1`] = `
+"<dim>expect(<red>object</><dim>)[.not].toMatchObject(<green>expected</><dim>)
+
+<green>received</> value cannot be an Error.
+Please use toEqual for comparing errors.
+Expected:
+  object: <green>[Error: bar]</>"
+`;
+
+exports[`toMatchObject() throws expect([Error: foo]).toMatchObject([Error: foo]) 1`] = `
+"<dim>expect(<red>object</><dim>)[.not].toMatchObject(<green>expected</><dim>)
+
+<green>received</> value cannot be an Error.
+Please use toEqual for comparing errors.
+Expected:
+  object: <green>[Error: foo]</>"
+`;
+
+exports[`toMatchObject() throws expect([Error: foo]).toMatchObject({"a": "b"}) 1`] = `
+"<dim>expect(<red>object</><dim>)[.not].toMatchObject(<green>expected</><dim>)
+
+<green>received</> value cannot be an Error.
+Please use toEqual for comparing errors.
+Expected:
+  object: <green>{\\"a\\": \\"b\\"}</>"
+`;
+
 exports[`toMatchObject() throws expect({}).toMatchObject("some string") 1`] = `
 "<dim>expect(<red>object</><dim>)[.not].toMatchObject(<green>expected</><dim>)
 

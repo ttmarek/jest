@@ -645,6 +645,26 @@ const matchers: MatchersObject = {
       );
     }
 
+    if (receivedObject instanceof Error) {
+      throw new Error(
+        matcherHint('[.not].toMatchObject', 'object', 'expected') +
+          '\n\n' +
+          `${EXPECTED_COLOR('received')} value cannot be an Error.\n` +
+          'Please use toEqual for comparing errors.\n' +
+          printWithType('Expected', expectedObject, printExpected),
+      );
+    }
+
+    if (expectedObject instanceof Error) {
+      throw new Error(
+        matcherHint('[.not].toMatchObject', 'object', 'expected') +
+          '\n\n' +
+          `${EXPECTED_COLOR('expected')} value cannot be an Error.\n` +
+          'Please use toEqual for comparing errors.\n' +
+          printWithType('Expected', expectedObject, printExpected),
+      );
+    }
+
     const pass = equals(receivedObject, expectedObject, [
       iterableEquality,
       subsetEquality,
